@@ -1,0 +1,21 @@
+[paaws]
+;; ENVIRONMENT SETTINGS
+; Set the region that TWS will use to create and locating your things
+; region = sa-east-1
+; Set the platform that the app will bootstrap
+; platform = cloud
+; Set the environment that the app will bootstrap
+; env = dev
+
+[autoscale]
+;; INSTANCE / AUTOSCALING SETTINGS
+; Set the instance class that your app will use 
+; instance-class = m1.small
+; Set your desired working instances
+; desired-capacity = 2
+; Set the min size of your scaling app
+; min-size = 0
+; Set the max size of your scaling app
+; max-size = 4
+; Set a custom AMI to bootstrap your APP (Region of AMI must be set)
+; ami = "<custom-ami-id>"
