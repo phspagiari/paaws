@@ -5,7 +5,8 @@ from getpass import getpass
 from boto import rds2 as rds
 from boto import exception
 
-from paaws.vpc import subnets, securitygroups
+from paaws import subnets
+from paaws import securitygroups
 
 
 class RDS(object):

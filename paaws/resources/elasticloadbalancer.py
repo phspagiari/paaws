@@ -6,7 +6,8 @@ from boto import ec2, iam
 from boto.ec2 import elb
 from boto.exception import BotoServerError
 
-from paaws.vpc import subnets, securitygroups
+from paaws import subnets
+from paaws import securitygroups
 
 
 class ElasticLoadBalancer(object):

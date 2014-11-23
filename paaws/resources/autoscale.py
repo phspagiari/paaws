@@ -6,9 +6,10 @@ from boto.ec2 import autoscale
 from boto import exception
 
 from paaws.config import Config, attributes
-from paaws.bootstrap import Userdata
-from paaws.iam import iam_roles
-from paaws.vpc import subnets, securitygroups
+from paaws.userdata import Userdata
+from paaws import iam
+from paaws import subnets
+from paaws import securitygroups
 from paaws.sns import get_sns_topic_arn
 
 
@@ -149,7 +150,7 @@ class Scale(object):
             key_name=config.key[self.region],
             instance_type=self.instance_class,
             security_groups=securitygroup_ids,
-            instance_profile_name=iam_roles.get(self.name, self.platform, self.env),
+            instance_profile_name=iam.get(self.name, self.platform, self.env),
             user_data=self.userdata,
             block_device_mappings=[attributes.bdm],
             associate_public_ip_address=self.public

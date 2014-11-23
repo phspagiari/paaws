@@ -6,9 +6,10 @@ from boto import ec2
 from boto.ec2 import networkinterface
 
 from paaws.config import attributes  # WILL BE DEPRECATED
-from paaws.vpc import subnets, securitygroups
-from paaws.bootstrap import Userdata
-from paaws.iam import iam_roles
+from paaws import subnets
+from paaws import securitygroups
+from paaws.userdata import Userdata
+from paaws import iam
 
 
 class Instance(object):
@@ -107,7 +108,7 @@ class Instance(object):
             instance_type=self.instance_class,
             subnet_id=None if self.public else self.subnet_id,
             user_data=self.userdata,
-            instance_profile_name=iam_roles.get(self.name, self.platform, self.env),
+            instance_profile_name=iam.get(self.name, self.platform, self.env),
             security_group_ids=None if self.public else self.securitygroup_ids,
             block_device_map=attributes.bdm,
             network_interfaces=interfaces

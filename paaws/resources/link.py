@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from paaws.vpc import securitygroups
+from paaws import securitygroups
 
 def link_app_resources(resource_connection, name, platform, env, region):
     try:

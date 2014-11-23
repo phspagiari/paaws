@@ -3,7 +3,8 @@
 from boto import elasticache
 from boto import exception
 
-from paaws.vpc import subnets, securitygroups
+from paaws import subnets
+from paaws import securitygroups
 from paaws.sns import get_sns_topic_arn
 
 
