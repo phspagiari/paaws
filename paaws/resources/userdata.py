@@ -3,12 +3,12 @@ from boto import s3
 
 
 class Userdata(object):
-    bucket_name = "tg-infra-automation"
-    s3keycheck = "c662c317a9017146fbd86334fd33a8cf"
-    s3host = "https://tg-infra-automation.s3.amazonaws.com"
-    domain = "titansgroup.net"
+    bucket_name = "<BUCKET-NAME>"
+    s3keycheck = "<S3-CHECK-KEY>"
+    s3host = "https://%s.s3.amazonaws.com" % bucket_name
+    domain = "<DOMAIN>t"
     chef_install = "curl -sL http://opscode.com/chef/install.sh | bash"
-    get_bootstrap = "curl -sH'Referer: %s' %s/scripts/tgbootstrap.py > /usr/local/bin/tgbootstrap.py" % (s3keycheck, s3host)
+    get_bootstrap = "curl -sH'Referer: %s' %s/scripts/bootstrap-script > /usr/local/bin/bootstrap-script" % (s3keycheck, s3host)
     get_databag_key = "curl -sH'Referer: %s' %s/chef/data_bags/data_bag_key > /tmp/data_bag_key" % (s3keycheck, s3host)
     get_chef_solo_conf = "curl -sH'Referer: %s' %s/chef/solo/solo.rb > /tmp/solo.rb" %  (s3keycheck, s3host)
     get_databag_package = "curl -sH'Referer: %s' %s/chef/data_bags/data_bags.tgz > /tmp/data_bags.tgz" % (s3keycheck, s3host)
